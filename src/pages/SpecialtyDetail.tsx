@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
@@ -153,6 +154,16 @@ const SpecialtyDetail = () => {
 
     return (
         <div className="min-h-screen bg-white font-manrope">
+            <Helmet>
+                <title>{`${specialty.title} | Nilakanta Skin & Hair Clinic`}</title>
+                <meta name="description" content={specialty.description} />
+                <meta property="og:title" content={`${specialty.title} | Nilakanta Skin & Hair Clinic`} />
+                <meta property="og:description" content={specialty.description} />
+                <meta property="og:image" content={specialty.beforeImage} />
+                <meta property="twitter:title" content={`${specialty.title} | Nilakanta Skin & Hair Clinic`} />
+                <meta property="twitter:description" content={specialty.description} />
+                <meta property="twitter:image" content={specialty.beforeImage} />
+            </Helmet>
             <Header />
 
             {/* Hero Section */}

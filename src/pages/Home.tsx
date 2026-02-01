@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async'
 import Header from '../components/Header'
 import Specialities from '../components/Specialities'
 import AboutUs from '../components/AboutUs'
@@ -9,6 +10,13 @@ import '../App.css'
 const Home = () => {
   return (
     <div className="min-h-screen bg-white font-manrope">
+      <Helmet>
+        <title>Nilakanta Skin & Hair Clinic | Best Dermatologist in Vijayawada</title>
+        <meta name="description" content="Nilakanta Skin & Hair Clinic by Dr. Neelakanta Babu. Expert treatment for skin allergies, hair transplant, vitiligo surgery, and more in Vijayawada." />
+        <meta property="og:title" content="Nilakanta Skin & Hair Clinic | Best Dermatologist in Vijayawada" />
+        <meta property="og:description" content="Expert dermatological and hair transplant services by Dr. Neelakanta Babu in Vijayawada." />
+        <meta property="og:image" content="/doctor.png" />
+      </Helmet>
       <Header />
       <main>
         {/* Hero Section */}
