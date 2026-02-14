@@ -80,7 +80,7 @@ const AboutUs = () => {
                                 <div className="relative">
                                     <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl">
                                         <img
-                                            src="/doctor.png"
+                                            src="/doctor.jpeg"
                                             alt="Dr. Neelakanta Babu"
                                             className="w-full h-full object-cover"
                                         />

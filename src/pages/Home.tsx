@@ -22,7 +22,7 @@ const Home = () => {
         <meta name="description" content="Nilakanta Skin & Hair Clinic by Dr. Neelakanta Babu. Expert treatment for skin allergies, hair transplant, vitiligo surgery, and more in Vijayawada." />
         <meta property="og:title" content="Nilakanta Skin & Hair Clinic | Best Dermatologist in Vijayawada" />
         <meta property="og:description" content="Expert dermatological and hair transplant services by Dr. Neelakanta Babu in Vijayawada." />
-        <meta property="og:image" content="/doctor.png" />
+        <meta property="og:image" content="/doctor.jpeg" />
       </Helmet>
       <Header />
       <main>
@@ -45,7 +45,7 @@ const Home = () => {
                 <div className="flex flex-col md:flex-row items-center lg:items-start gap-4 mb-8">
                   <div className="w-16 h-16 rounded-full border-2 border-white/20 overflow-hidden flex-shrink-0">
                     <img
-                      src="/doctor.png"
+                      src="/doctor.jpeg"
                       alt="Dr. Neelakanta Babu"
                       className="w-full h-full object-cover"
                     />
