@@ -1,4 +1,4 @@
-import { Zap, Clock, CheckCircle, Info, ArrowRight } from 'lucide-react';
+import { Zap, Clock, Info, ArrowRight } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 const TreatmentSection = () => {
