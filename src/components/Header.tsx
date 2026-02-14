@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
 import { Phone, Menu, X } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 const Header = () => {
+    const { language, setLanguage, t } = useLanguage();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const location = useLocation();
     const navigate = useNavigate();
@@ -54,10 +56,10 @@ const Header = () => {
                     onClick={() => scrollToSection('home')}
                 >
                     <h1 className="text-[#1A1560] font-extrabold text-base md:text-lg leading-tight tracking-tight">
-                        Nilakanta skin & Hair Clininc
+                        {language === 'en' ? 'Nilakanta skin & Hair Clinic' : 'నీలకంఠ స్కిన్ & హెయిర్ క్లినిక్'}
                     </h1>
                     <span className="text-[#1A1560] text-[10px] md:text-xs font-semibold tracking-wide opacity-90">
-                        నీలకంఠ చర్మ వ్యాధుల క్లినిక్
+                        {language === 'en' ? 'Dermacare & Hair Transplant' : 'నీలకంఠ చర్మ వ్యాధుల క్లినిక్'}
                     </span>
                 </div>
 
@@ -70,24 +72,41 @@ const Header = () => {
                             : "text-gray-500 hover:text-[#1A1560]"
                             }`}
                     >
-                        Home
+                        {t('home')}
                     </button>
                     <button
                         onClick={() => scrollToSection('specialities')}
                         className="text-gray-500 hover:text-[#1A1560] font-medium text-sm transition-colors"
                     >
-                        Specialities
+                        {t('specialities')}
                     </button>
                     <button
                         onClick={() => scrollToSection('about')}
                         className="text-gray-500 hover:text-[#1A1560] font-medium text-sm transition-colors"
                     >
-                        About us
+                        {t('about')}
                     </button>
                 </nav>
 
-                {/* Right Section: Helpline and Booking Button */}
+                {/* Right Section: Helpline, Language and Booking Button */}
                 <div className="flex items-center gap-4 md:gap-6">
+                    {/* Language Switcher Link */}
+                    <div className="flex items-center gap-2 border-r border-gray-200 pr-4 md:pr-6 mr-2">
+                        <button
+                            onClick={() => setLanguage('en')}
+                            className={`text-xs font-bold transition-all ${language === 'en' ? 'text-[#1A1560] underline underline-offset-4' : 'text-gray-400 hover:text-gray-600'}`}
+                        >
+                            EN
+                        </button>
+                        <span className="text-gray-300 text-[10px]">|</span>
+                        <button
+                            onClick={() => setLanguage('te')}
+                            className={`text-xs font-bold transition-all ${language === 'te' ? 'text-[#291593] underline underline-offset-4' : 'text-gray-400 hover:text-gray-600'}`}
+                        >
+                            తెలుగు
+                        </button>
+                    </div>
+
                     {/* Helpline - Hidden on small mobile */}
                     <div className="hidden sm:flex flex-col items-end">
                         <span className="text-gray-400 text-[8px] font-bold uppercase tracking-[.15em] mb-0.5 whitespace-nowrap">
@@ -107,7 +126,7 @@ const Header = () => {
                         className="hidden md:flex bg-[#1A1560] hover:bg-[#251D80] text-white px-5 py-2.5 rounded-lg items-center gap-2 transition-all shadow-lg shadow-indigo-900/10 hover:scale-[1.02] active:scale-95 group"
                     >
                         <Phone className="w-3.5 h-3.5 group-hover:animate-shake" />
-                        <span className="font-bold text-xs tracking-wide whitespace-nowrap">Book Appointment</span>
+                        <span className="font-bold text-xs tracking-wide whitespace-nowrap">{t('bookAppointment')}</span>
                     </a>
 
                     {/* Mobile Menu Toggle */}
@@ -133,21 +152,40 @@ const Header = () => {
                             className={`text-xl font-bold border-b border-indigo-50 pb-3 text-left ${isHome ? "text-[#1A1560]" : "text-gray-500"
                                 }`}
                         >
-                            Home
+                            {t('home')}
                         </button>
                         <button
                             onClick={() => scrollToSection('specialities')}
                             className="text-gray-500 font-bold text-xl border-b border-indigo-50 pb-3 text-left"
                         >
-                            Specialities
+                            {t('specialities')}
                         </button>
                         <button
                             onClick={() => scrollToSection('about')}
                             className="text-gray-500 font-bold text-xl border-b border-indigo-50 pb-3 text-left"
                         >
-                            About us
+                            {t('about')}
                         </button>
                     </nav>
+
+                    {/* Mobile Language Switcher */}
+                    <div className="flex items-center gap-4 mb-8 bg-gray-50 p-4 rounded-xl">
+                        <span className="text-gray-400 text-xs font-bold uppercase tracking-wider">Language:</span>
+                        <div className="flex gap-4">
+                            <button
+                                onClick={() => { setLanguage('en'); setIsMenuOpen(false); }}
+                                className={`text-sm font-black ${language === 'en' ? 'text-[#1A1560] border-b-2 border-[#1A1560]' : 'text-gray-400'}`}
+                            >
+                                ENGLISH
+                            </button>
+                            <button
+                                onClick={() => { setLanguage('te'); setIsMenuOpen(false); }}
+                                className={`text-sm font-black ${language === 'te' ? 'text-[#291593] border-b-2 border-[#291593]' : 'text-gray-400'}`}
+                            >
+                                తెలుగు
+                            </button>
+                        </div>
+                    </div>
 
                     <div className="mt-auto space-y-5">
                         <div className="bg-indigo-50 p-5 rounded-xl">
@@ -167,7 +205,7 @@ const Header = () => {
                             className="w-full bg-[#1A1560] text-white py-4 rounded-xl flex items-center justify-center gap-3 shadow-xl shadow-indigo-900/20 active:scale-95 transition-transform"
                         >
                             <Phone className="w-4 h-4" />
-                            <span className="font-bold text-base">Book Appointment Now</span>
+                            <span className="font-bold text-base">{t('bookAppointment')}</span>
                         </a>
                     </div>
                 </div>

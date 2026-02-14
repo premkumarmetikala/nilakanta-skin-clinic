@@ -5,10 +5,11 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { ImageComparisonSlider } from '../components/ui/image-comparison-slider';
 import { ArrowRight } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 // Specialty data
 const specialtyData: Record<string, {
-    title: string;
+    titleKey: string;
     heroTitle: string;
     description: string;
     beforeImage: string;
@@ -17,7 +18,7 @@ const specialtyData: Record<string, {
     image?: string;
 }> = {
     'skin-allergy': {
-        title: 'Skin Allergy',
+        titleKey: 'skinAllergy',
         heroTitle: 'Expert Skin Allergy Treatment',
         description: 'From skin allergies to complete relief, experience the mastery of Dr. Neelakanta\'s expertise. This transformative journey provides comprehensive allergy testing and personalized treatment plans. We provide complete skin coverage designed for a seamless, healthy look. Join thousands who have regained their confidence with us. Your skin, our passion.',
         beforeImage: '/skin_allergy.png',
@@ -25,7 +26,7 @@ const specialtyData: Record<string, {
         image: '/skinallergy.png'
     },
     'fungus': {
-        title: 'Fungus (ringworm chamet)',
+        titleKey: 'fungus',
         heroTitle: 'Effective Fungal Infection Treatment',
         description: 'From fungal infections to clear healthy skin, experience the mastery of Dr. Neelakanta\'s expertise. This transformative journey utilizes advanced antifungal treatments and personalized care. We provide complete treatment designed for lasting results. Join thousands who have regained their skin health with us. Your skin, our passion.',
         beforeImage: '/fungus.jpg',
@@ -33,7 +34,7 @@ const specialtyData: Record<string, {
         image: '/fungus.jpg'
     },
     'scabies-mites': {
-        title: 'Scabies & Mites',
+        titleKey: 'scabies',
         heroTitle: 'Complete Scabies & Mites Treatment',
         description: 'From scabies and mite infestations to complete relief, experience the mastery of Dr. Neelakanta\'s expertise. This transformative journey provides thorough treatment and prevention strategies. We provide complete care designed for rapid recovery. Join thousands who have regained their comfort with us. Your health, our passion.',
         beforeImage: '/scabies.png',
@@ -41,7 +42,7 @@ const specialtyData: Record<string, {
         image: '/scabies.png'
     },
     'vitiligo-surgery': {
-        title: 'Vitiligo Surgery',
+        titleKey: 'vitiligoSurgery',
         heroTitle: 'Advanced Vitiligo Surgery',
         description: 'From vitiligo patches to even skin tone, experience the mastery of Dr. Neelakanta\'s expertise. This transformative journey utilizes advanced surgical techniques and melanocyte transplantation. We provide complete coverage designed for natural-looking results. Join thousands who have regained their confidence with us. Your skin, our passion.',
         beforeImage: '/vitiligo.jpg',
@@ -49,15 +50,15 @@ const specialtyData: Record<string, {
         image: '/vitiligo.jpg'
     },
     'skin-biopsy': {
-        title: 'Skin Biopsy',
+        titleKey: 'skinBiopsy',
         heroTitle: 'Professional Skin Biopsy Services',
-        description: 'From diagnostic uncertainty to clear answers, experience the mastery of Dr. Neelakanta\'s expertise. This precise procedure utilizes advanced techniques for accurate diagnosis. We provide complete analysis designed for optimal treatment planning. Join thousands who trust us for their diagnostic needs. Your health, our passion.',
+        description: 'From diagnostic uncertainty to clear answers, experience the mastery of Dr. Neelakanta\'s expertise. This precise procedure utilizes advanced techniques for accurate diagnosis. We provide complete analysis designed for optimal treatment planning. Join thousands trust us for their diagnostic needs. Your health, our passion.',
         beforeImage: '/skinbiopsy.png',
         afterImage: '/skinallergy.png',
         image: '/skinbiopsy.png'
     },
     'acne-care': {
-        title: 'Acne Care',
+        titleKey: 'acneCare',
         heroTitle: 'Comprehensive Acne Treatment',
         description: 'From persistent acne to clear, glowing skin, experience the mastery of Dr. Neelakanta\'s expertise. This transformative journey utilizes advanced treatments and personalized skincare routines. We provide complete care designed for long-lasting results. Join thousands who have regained their confidence with us. Your skin, our passion.',
         beforeImage: '/acne.png',
@@ -65,7 +66,7 @@ const specialtyData: Record<string, {
         image: '/acne.png'
     },
     'chemical-peel': {
-        title: 'Chemical Peel',
+        titleKey: 'chemicalPeel',
         heroTitle: 'Rejuvenating Chemical Peel Treatment',
         description: 'From dull, aging skin to radiant, youthful complexion, experience the mastery of Dr. Neelakanta\'s expertise. This transformative treatment utilizes medical-grade peels for optimal results. We provide complete skin rejuvenation designed for a fresh, glowing look. Join thousands who have transformed their skin with us. Your beauty, our passion.',
         beforeImage: '/chemicalpeel.png',
@@ -73,7 +74,7 @@ const specialtyData: Record<string, {
         image: '/chemicalpeel.png'
     },
     'co2-laser': {
-        title: 'Co2 laser/scars treatment',
+        titleKey: 'co2Laser',
         heroTitle: 'Advanced CO2 Laser Scar Treatment',
         description: 'From visible scars to smooth, even skin, experience the mastery of Dr. Neelakanta\'s expertise. This transformative treatment utilizes state-of-the-art CO2 laser technology. We provide complete scar reduction designed for remarkable results. Join thousands who have regained their confidence with us. Your skin, our passion.',
         beforeImage: '/co2 laser.png',
@@ -81,7 +82,7 @@ const specialtyData: Record<string, {
         image: '/co2 laser.png'
     },
     'hydrafacial': {
-        title: 'Hydrafacial/Glow peel',
+        titleKey: 'hydraFacial',
         heroTitle: 'Luxurious Hydrafacial Treatment',
         description: 'From tired, dull skin to radiant, hydrated glow, experience the mastery of Dr. Neelakanta\'s expertise. This transformative treatment combines cleansing, exfoliation, and hydration. We provide complete facial rejuvenation designed for instant results. Join thousands who have discovered their natural glow with us. Your radiance, our passion.',
         beforeImage: '/hydrafacial.png',
@@ -89,7 +90,7 @@ const specialtyData: Record<string, {
         image: '/hydrafacial.png'
     },
     'prp-gfc': {
-        title: 'PRP/GFC/QR678',
+        titleKey: 'prpGfc',
         heroTitle: 'Advanced PRP Hair Restoration',
         description: 'From thinning hair to fuller, healthier growth, experience the mastery of Dr. Neelakanta\'s expertise. This transformative treatment utilizes your body\'s own growth factors. We provide complete hair restoration designed for natural results. Join thousands who have regained their hair confidence with us. Your hair, our passion.',
         beforeImage: '/prp.png',
@@ -97,7 +98,7 @@ const specialtyData: Record<string, {
         image: '/prp.png'
     },
     'hair-transplant': {
-        title: 'Hair Transplant',
+        titleKey: 'hairTransplant',
         heroTitle: 'Expert Hair Transplant Surgery',
         description: 'From hair loss to natural, permanent restoration, experience the mastery of Dr. Neelakanta\'s expertise. This transformative surgery utilizes advanced FUE techniques. We provide complete coverage designed for undetectable results. Join thousands who have regained their confidence with us. Your hair, our passion.',
         beforeImage: '/hair_transplant.png',
@@ -105,18 +106,27 @@ const specialtyData: Record<string, {
         image: '/hairtransplant.png'
     },
     'hair-loss-treatment': {
-        title: 'Hair Loss Treatment',
+        titleKey: 'hairLossTreatment',
         heroTitle: 'From Grade VII Baldness to Confidence hair',
         description: 'From Grade VII baldness to a full head of natural hair, experience the mastery of Dr. Neelakanta\'s 10-year expertise. This transformative journey utilized 4,230 precision grafts, expertly executed over a dedicated two-day surgical procedure. We provide complete scalp coverage designed for a seamless, youthful look. Join thousands who have regained their self-esteem with us. Your hair, our passion.',
         beforeImage: '/a8d146ca8b4b1d737c95825397bad650a4acad3b.jpg',
         afterImage: '/hairloss.png',
         image: '/hairloss.png'
     },
+    'tattoo-removal': {
+        titleKey: 'tattooRemoval',
+        heroTitle: 'Safe & Effective Tattoo Removal',
+        description: 'Whether it\'s standard laser removal (10-12 sessions) or our specialized "Controlled Tattoo Destruction" for urgent defense selection requirements, we offer precise medical solutions tailored to your timeline and budget. Safe, effective, and professionally monitored.',
+        beforeImage: '/co2 laser.png',
+        afterImage: '/hydrafacial.png',
+        image: '/co2 laser.png'
+    },
 };
 
 const SpecialtyDetail = () => {
     const { slug } = useParams<{ slug: string }>();
     const navigate = useNavigate();
+    const { t, language } = useLanguage();
 
     const specialty = slug ? specialtyData[slug] : null;
 
@@ -128,17 +138,21 @@ const SpecialtyDetail = () => {
         return (
             <div className="min-h-screen bg-white font-manrope flex items-center justify-center">
                 <div className="text-center">
-                    <h1 className="text-4xl font-bold text-[#1A1560] mb-4">Specialty Not Found</h1>
+                    <h1 className="text-4xl font-bold text-[#1A1560] mb-4">
+                        {language === 'en' ? 'Specialty Not Found' : 'ప్రత్యేకత కనుగొనబడలేదు'}
+                    </h1>
                     <button
                         onClick={() => navigate('/')}
                         className="bg-[#1A1560] text-white px-6 py-3 rounded-lg hover:bg-[#251D80] transition-colors"
                     >
-                        Back to Home
+                        {t('home')}
                     </button>
                 </div>
             </div>
         );
     }
+
+    const title = t(specialty.titleKey);
 
     // Get 4 random related specialties, excluding current one
     const relatedSpecialties = Object.entries(specialtyData)
@@ -155,12 +169,12 @@ const SpecialtyDetail = () => {
     return (
         <div className="min-h-screen bg-white font-manrope">
             <Helmet>
-                <title>{`${specialty.title} | Nilakanta Skin & Hair Clinic`}</title>
+                <title>{`${title} | Nilakanta Skin & Hair Clinic`}</title>
                 <meta name="description" content={specialty.description} />
-                <meta property="og:title" content={`${specialty.title} | Nilakanta Skin & Hair Clinic`} />
+                <meta property="og:title" content={`${title} | Nilakanta Skin & Hair Clinic`} />
                 <meta property="og:description" content={specialty.description} />
                 <meta property="og:image" content={specialty.beforeImage} />
-                <meta property="twitter:title" content={`${specialty.title} | Nilakanta Skin & Hair Clinic`} />
+                <meta property="twitter:title" content={`${title} | Nilakanta Skin & Hair Clinic`} />
                 <meta property="twitter:description" content={specialty.description} />
                 <meta property="twitter:image" content={specialty.beforeImage} />
             </Helmet>
@@ -173,10 +187,10 @@ const SpecialtyDetail = () => {
                     <div className="mb-6">
                         <p className="text-sm text-gray-500">
                             <button onClick={() => navigate('/')} className="hover:text-[#1A1560] transition-colors">
-                                Specialities
+                                {t('specialities')}
                             </button>
                             <span className="mx-2">/</span>
-                            <span className="text-[#1A1560] font-semibold">{specialty.title}</span>
+                            <span className="text-[#1A1560] font-semibold">{title}</span>
                         </p>
                     </div>
 
@@ -185,7 +199,7 @@ const SpecialtyDetail = () => {
                             {/* Left: Text Content */}
                             <div className="space-y-5">
                                 <h1 className="text-3xl md:text-4xl font-extrabold text-[#1A1560] leading-tight">
-                                    {specialty.heroTitle}
+                                    {language === 'en' ? specialty.heroTitle : title}
                                 </h1>
                                 <p className="text-gray-600 text-sm md:text-base leading-relaxed">
                                     {specialty.description}
@@ -196,7 +210,7 @@ const SpecialtyDetail = () => {
                                     rel="noopener noreferrer"
                                     className="inline-block border-2 border-[#1A1560] text-[#1A1560] hover:bg-[#1A1560] hover:text-white px-7 py-3 rounded-xl font-bold text-sm transition-all hover:scale-[1.02] active:scale-95"
                                 >
-                                    Book Appointment
+                                    {t('bookAppointment')}
                                 </a>
                             </div>
 
@@ -206,8 +220,8 @@ const SpecialtyDetail = () => {
                                     <ImageComparisonSlider
                                         leftImage={specialty.beforeImage}
                                         rightImage={specialty.afterImage}
-                                        altLeft={`${specialty.title} - Before treatment`}
-                                        altRight={`${specialty.title} - After treatment`}
+                                        altLeft={`${title} - Before treatment`}
+                                        altRight={`${title} - After treatment`}
                                         initialPosition={50}
                                     />
                                 </div>
@@ -224,7 +238,9 @@ const SpecialtyDetail = () => {
             <section className="py-16 px-6 lg:px-8 bg-[#EBF5FF]">
                 <div className="max-w-5xl mx-auto">
                     <div className="text-center mb-10">
-                        <h2 className="text-2xl font-bold text-[#1A1560]">Explore Other Specialties</h2>
+                        <h2 className="text-2xl font-bold text-[#1A1560]">
+                            {language === 'en' ? 'Explore Other Specialties' : 'ఇతర ప్రత్యేకతలను అన్వేషించండి'}
+                        </h2>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -237,13 +253,13 @@ const SpecialtyDetail = () => {
                                 <div className="w-20 h-20 md:w-24 md:h-24 rounded-xl overflow-hidden bg-indigo-50 flex-shrink-0 relative shadow-inner">
                                     <img
                                         src={spec.image}
-                                        alt={spec.title}
+                                        alt={t(spec.titleKey)}
                                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                                     />
                                 </div>
                                 <div className="flex-1 pr-8 text-left">
                                     <h3 className="text-[#1A1560] font-bold text-lg leading-tight group-hover:text-indigo-600 transition-colors line-clamp-2">
-                                        {spec.title}
+                                        {t(spec.titleKey)}
                                     </h3>
                                 </div>
 

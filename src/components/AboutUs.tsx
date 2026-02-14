@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { ArrowRight, ChevronUp } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 const AboutUs = () => {
     const [isExpanded, setIsExpanded] = useState(false);
+    const { t } = useLanguage();
 
     return (
         <section className="w-full bg-[#EBF5FF] py-12 font-manrope">
@@ -12,7 +14,7 @@ const AboutUs = () => {
                         {/* Section Title */}
                         <div className="text-center mb-10">
                             <h2 className="text-2xl md:text-3xl font-extrabold text-[#1A1560] tracking-tight">
-                                About Us
+                                {t('about')}
                             </h2>
                         </div>
 
@@ -27,17 +29,11 @@ const AboutUs = () => {
                             <div className="flex-1 flex flex-col justify-between text-left">
                                 <div className={`space-y-6 text-gray-500 text-sm md:text-base leading-relaxed transition-all duration-700`}>
                                     <p className="font-semibold text-[#1A1560]/80">
-                                        Welcome to Neelakanta Skin & Laser - Leader Hair Transplant, a trusted destination for advanced skin,
-                                        hair, and aesthetic solutions in Vijayawada. With years of clinical experience and a deep commitment to
-                                        patient well-being, we deliver personalized care using the latest dermatological and hair restoration
-                                        technologies.
+                                        {t('welcomeMessage')}
                                     </p>
 
                                     <p>
-                                        We specialize in advanced hair restoration and dermatology care, offering treatments such as FUE hair
-                                        transplantation, PRP, GFC, QR678 therapies, as well as comprehensive solutions for acne, pigmentation,
-                                        scars, and skin rejuvenation. All treatments are backed by medical science, modern technology, and strict
-                                        safety protocols.
+                                        {t('welcomeDesc')}
                                     </p>
 
                                     <div className={`space-y-6 transition-all duration-700 origin-top ${isExpanded ? 'opacity-100 scale-y-100 h-auto' : 'opacity-0 scale-y-0 h-0 lg:h-auto lg:opacity-100 lg:scale-y-100 overflow-hidden'}`}>
@@ -72,9 +68,9 @@ const AboutUs = () => {
                                     className="inline-flex items-center gap-2 text-[#291593] font-black text-base pt-8 group mt-auto self-start"
                                 >
                                     {isExpanded ? (
-                                        <>Read Less <ChevronUp className="w-4 h-4" /></>
+                                        <>{t('readLess')} <ChevronUp className="w-4 h-4" /></>
                                     ) : (
-                                        <>Know more <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" /></>
+                                        <>{t('readMore')} <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" /></>
                                     )}
                                 </button>
                             </div>

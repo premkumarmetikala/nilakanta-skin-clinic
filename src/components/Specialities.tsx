@@ -1,23 +1,27 @@
 import { Phone, ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-
-const specialties = [
-  { title: "Skin allergy", image: "/skinallergy.png", slug: "skin-allergy" },
-  { title: "Fungus (ringworm chamet)", image: "/fungus.jpg", slug: "fungus" },
-  { title: "Scabies & Mites", image: "/scabies.png", slug: "scabies-mites" },
-  { title: "Vitiligo surgery", image: "/vitiligo.jpg", slug: "vitiligo-surgery" },
-  { title: "Skin Biopsy", image: "/skinbiopsy.png", slug: "skin-biopsy" },
-  { title: "Acne Care", image: "/acne.png", slug: "acne-care" },
-  { title: "Chemical Peel", image: "/chemicalpeel.png", slug: "chemical-peel" },
-  { title: "Co2 laser/scars treatment", image: "/co2 laser.png", slug: "co2-laser" },
-  { title: "Hydrafacial/Glow peel", image: "/hydrafacial.png", slug: "hydrafacial" },
-  { title: "PRP/GFC/QR678", image: "/prp.png", slug: "prp-gfc" },
-  { title: "Hair Transplant", image: "/hairtransplant.png", slug: "hair-transplant" },
-  { title: "Hair Loss treatment", image: "/hairloss.png", slug: "hair-loss-treatment" },
-];
+import { useLanguage } from '../context/LanguageContext';
 
 const Specialities = () => {
   const navigate = useNavigate();
+  const { t } = useLanguage();
+
+  const specialties = [
+    { title: t('skinAllergy'), image: "/skinallergy.png", slug: "skin-allergy" },
+    { title: t('fungus'), image: "/fungus.jpg", slug: "fungus" },
+    { title: t('scabies'), image: "/scabies.png", slug: "scabies-mites" },
+    { title: t('vitiligoSurgery'), image: "/vitiligo.jpg", slug: "vitiligo-surgery" },
+    { title: t('skinBiopsy'), image: "/skinbiopsy.png", slug: "skin-biopsy" },
+    { title: t('acneCare'), image: "/acne.png", slug: "acne-care" },
+    { title: t('chemicalPeel'), image: "/chemicalpeel.png", slug: "chemical-peel" },
+    { title: t('co2Laser'), image: "/co2 laser.png", slug: "co2-laser" },
+    { title: t('hydraFacial'), image: "/hydrafacial.png", slug: "hydrafacial" },
+    { title: t('prpGfc'), image: "/prp.png", slug: "prp-gfc" },
+    { title: t('hairTransplant'), image: "/hairtransplant.png", slug: "hair-transplant" },
+    { title: t('hairLossTreatment'), image: "/hairloss.png", slug: "hair-loss-treatment" },
+    { title: t('tattooRemoval'), image: "/co2 laser.png", slug: "tattoo-removal" },
+  ];
+
   return (
     <section className="w-full bg-[#EBF5FF] py-14 px-6 lg:px-8 font-manrope overflow-hidden">
       <div className="max-w-5xl mx-auto">
@@ -27,13 +31,13 @@ const Specialities = () => {
           <div className="relative mb-5 flex items-center justify-center">
             <div className="absolute top-1/2 left-[-100%] right-[-100%] h-[1px] bg-indigo-100/60 z-0"></div>
             <div className="inline-block px-4 py-1.5 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-600 font-bold text-[11px] uppercase tracking-wider relative z-10">
-              Specialities
+              {t('specialities')}
             </div>
           </div>
 
           {/* Title on Next Line */}
           <h2 className="text-2xl md:text-3xl font-extrabold text-[#1A1560] tracking-tight text-center">
-            How We Can Help You
+            {t('howWeCanHelp')}
           </h2>
         </div>
 
@@ -68,10 +72,15 @@ const Specialities = () => {
 
         {/* Bottom CTA */}
         <div className="flex justify-center">
-          <button className="bg-[#1A1560] hover:bg-[#251D80] text-white px-8 py-3.5 rounded-xl flex items-center gap-2.5 transition-all shadow-xl shadow-indigo-900/10 hover:scale-[1.02] active:scale-95">
+          <a
+            href="https://wa.me/919963234094?text=Hey%20I%20want%20to%20Book%20appointment"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-[#1A1560] hover:bg-[#251D80] text-white px-8 py-3.5 rounded-xl flex items-center gap-2.5 transition-all shadow-xl shadow-indigo-900/10 hover:scale-[1.02] active:scale-95"
+          >
             <Phone className="w-4 h-4 fill-white" />
-            <span className="font-bold text-base">Book Appointment</span>
-          </button>
+            <span className="font-bold text-base">{t('bookAppointment')}</span>
+          </a>
         </div>
       </div>
     </section>

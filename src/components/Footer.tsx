@@ -1,9 +1,11 @@
 import { Instagram, Facebook, Youtube, MessageCircle, ArrowUpRight } from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useLanguage } from '../context/LanguageContext';
 
 const Footer = () => {
     const location = useLocation();
     const navigate = useNavigate();
+    const { t, language } = useLanguage();
 
     const isHome = location.pathname === '/';
 
@@ -41,7 +43,7 @@ const Footer = () => {
                     <div className="flex flex-col lg:flex-row justify-between items-start gap-8 mb-8 md:mb-10 pb-8 md:pb-10 border-b border-gray-100">
                         <div className="max-w-md text-left">
                             <h2 className="text-2xl md:text-3xl lg:text-[32px] font-extrabold text-[#1A1560] leading-[1.2] mb-6">
-                                Caring for your skin. Restoring your confidence.
+                                {language === 'en' ? 'Caring for your skin. Restoring your confidence.' : 'మీ చర్మానికి సంరక్షణ. మీ ఆత్మవిశ్వాసానికి పునాది.'}
                             </h2>
                             <div className="flex flex-wrap gap-3">
                                 <a
@@ -50,7 +52,7 @@ const Footer = () => {
                                     rel="noopener noreferrer"
                                     className="bg-[#1A1560] hover:bg-[#251D80] text-white px-7 py-3 rounded-xl font-bold text-sm shadow-xl shadow-indigo-900/10 transition-all flex items-center justify-center flex-1 sm:flex-none whitespace-nowrap"
                                 >
-                                    Book Appointment
+                                    {t('bookAppointment')}
                                 </a>
                                 <a
                                     href="https://wa.me/919963234094?text=Hey%20I%20want%20to%20Book%20appointment"
@@ -65,10 +67,10 @@ const Footer = () => {
 
                         <div className="flex flex-col items-start lg:items-end text-left lg:text-right w-full lg:w-auto transition-all">
                             <h3 className="text-[#1A1560] font-extrabold text-xl lg:text-2xl leading-tight mb-2">
-                                Nilakanta skin & Hair Clininc
+                                {language === 'en' ? 'Nilakanta skin & Hair Clinic' : 'నీలకంఠ స్కిన్ & హెయిర్ క్లినిక్'}
                             </h3>
                             <p className="text-[#1A1560] text-base lg:text-lg font-bold mb-5 opacity-90">
-                                నీలకంఠ చర్మ వ్యాధుల క్లినిక్
+                                {language === 'en' ? 'Dermacare & Hair Transplant' : 'నీలకంఠ చర్మ వ్యాధుల క్లినిక్'}
                             </p>
                             <div className="flex gap-4">
                                 <a
@@ -112,35 +114,35 @@ const Footer = () => {
 
                         {/* Company Column */}
                         <div className="flex flex-col text-left">
-                            <h4 className="text-[#1A1560] font-black text-lg mb-5 border-b border-dashed border-gray-200 pb-2 md:border-none md:pb-0 inline-block w-full md:w-auto">Company</h4>
+                            <h4 className="text-[#1A1560] font-black text-lg mb-5 border-b border-dashed border-gray-200 pb-2 md:border-none md:pb-0 inline-block w-full md:w-auto">{language === 'en' ? 'Company' : 'కంపెనీ'}</h4>
                             <div className="flex flex-col gap-4 md:gap-5">
-                                <button onClick={() => scrollToSection('home')} className="text-gray-500 hover:text-[#1A1560] font-medium text-[15px] transition-colors text-left hover:translate-x-1 duration-200">Home</button>
-                                <button onClick={() => scrollToSection('about')} className="text-gray-500 hover:text-[#1A1560] font-medium text-[15px] transition-colors text-left hover:translate-x-1 duration-200">About Us</button>
-                                <button onClick={() => scrollToSection('contact')} className="text-gray-500 hover:text-[#1A1560] font-medium text-[15px] transition-colors text-left hover:translate-x-1 duration-200">Contact Us</button>
+                                <button onClick={() => scrollToSection('home')} className="text-gray-500 hover:text-[#1A1560] font-medium text-[15px] transition-colors text-left hover:translate-x-1 duration-200">{t('home')}</button>
+                                <button onClick={() => scrollToSection('about')} className="text-gray-500 hover:text-[#1A1560] font-medium text-[15px] transition-colors text-left hover:translate-x-1 duration-200">{t('about')}</button>
+                                <button onClick={() => scrollToSection('contact')} className="text-gray-500 hover:text-[#1A1560] font-medium text-[15px] transition-colors text-left hover:translate-x-1 duration-200">{t('contact')}</button>
                             </div>
                         </div>
 
                         {/* Services Main Container */}
                         <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-4 text-left">
                             <div className="flex flex-col">
-                                <h4 className="text-[#1A1560] font-black text-lg mb-5 border-b border-dashed border-gray-200 pb-2 md:border-none md:pb-0 inline-block w-full md:w-auto">Services</h4>
+                                <h4 className="text-[#1A1560] font-black text-lg mb-5 border-b border-dashed border-gray-200 pb-2 md:border-none md:pb-0 inline-block w-full md:w-auto">{language === 'en' ? 'Services' : 'సేవలు'}</h4>
                                 <div className="flex flex-col gap-4 md:gap-5">
-                                    <button onClick={() => navigate('/specialty/vitiligo-surgery')} className="text-gray-500 hover:text-[#1A1560] font-medium text-[15px] transition-colors text-left hover:translate-x-1 duration-200">Vitiligo surgery</button>
-                                    <button onClick={() => navigate('/specialty/skin-allergy')} className="text-gray-500 hover:text-[#1A1560] font-medium text-[15px] transition-colors text-left hover:translate-x-1 duration-200">Skin allergy</button>
-                                    <button onClick={() => navigate('/specialty/fungus')} className="text-gray-500 hover:text-[#1A1560] font-medium text-[15px] transition-colors text-left hover:translate-x-1 duration-200">Fungus (ringworm chamet)</button>
-                                    <button onClick={() => navigate('/specialty/chemical-peel')} className="text-gray-500 hover:text-[#1A1560] font-medium text-[15px] transition-colors text-left hover:translate-x-1 duration-200">Chemical Peel</button>
-                                    <button onClick={() => navigate('/specialty/prp-gfc')} className="text-gray-500 hover:text-[#1A1560] font-medium text-[15px] transition-colors text-left hover:translate-x-1 duration-200">PRP/GFC/QR678</button>
-                                    <button onClick={() => navigate('/specialty/hydrafacial')} className="text-gray-500 hover:text-[#1A1560] font-medium text-[15px] transition-colors text-left hover:translate-x-1 duration-200">Hydrafacial/Glow peel</button>
+                                    <button onClick={() => navigate('/specialty/vitiligo-surgery')} className="text-gray-500 hover:text-[#1A1560] font-medium text-[15px] transition-colors text-left hover:translate-x-1 duration-200">{t('vitiligoSurgery')}</button>
+                                    <button onClick={() => navigate('/specialty/skin-allergy')} className="text-gray-500 hover:text-[#1A1560] font-medium text-[15px] transition-colors text-left hover:translate-x-1 duration-200">{t('skinAllergy')}</button>
+                                    <button onClick={() => navigate('/specialty/fungus')} className="text-gray-500 hover:text-[#1A1560] font-medium text-[15px] transition-colors text-left hover:translate-x-1 duration-200">{t('fungus')}</button>
+                                    <button onClick={() => navigate('/specialty/chemical-peel')} className="text-gray-500 hover:text-[#1A1560] font-medium text-[15px] transition-colors text-left hover:translate-x-1 duration-200">{t('chemicalPeel')}</button>
+                                    <button onClick={() => navigate('/specialty/prp-gfc')} className="text-gray-500 hover:text-[#1A1560] font-medium text-[15px] transition-colors text-left hover:translate-x-1 duration-200">{t('prpGfc')}</button>
+                                    <button onClick={() => navigate('/specialty/hydrafacial')} className="text-gray-500 hover:text-[#1A1560] font-medium text-[15px] transition-colors text-left hover:translate-x-1 duration-200">{t('hydraFacial')}</button>
                                 </div>
                             </div>
                             <div className="flex flex-col">
                                 <div className="flex flex-col gap-4 md:gap-5 md:mt-12">
-                                    <button onClick={() => navigate('/specialty/acne-care')} className="text-gray-500 hover:text-[#1A1560] font-medium text-[15px] transition-colors text-left hover:translate-x-1 duration-200">Acne Care</button>
-                                    <button onClick={() => navigate('/specialty/hair-loss-treatment')} className="text-gray-500 hover:text-[#1A1560] font-medium text-[15px] transition-colors text-left hover:translate-x-1 duration-200">Hair Loss treatment</button>
-                                    <button onClick={() => navigate('/specialty/scabies-mites')} className="text-gray-500 hover:text-[#1A1560] font-medium text-[15px] transition-colors text-left hover:translate-x-1 duration-200">Scabies & Mites</button>
-                                    <button onClick={() => navigate('/specialty/co2-laser')} className="text-gray-500 hover:text-[#1A1560] font-medium text-[15px] transition-colors text-left hover:translate-x-1 duration-200">Co2 laser/scars treatment</button>
-                                    <button onClick={() => navigate('/specialty/hair-transplant')} className="text-gray-500 hover:text-[#1A1560] font-medium text-[15px] transition-colors text-left hover:translate-x-1 duration-200">Hair Transplant</button>
-                                    <button onClick={() => navigate('/specialty/skin-biopsy')} className="text-gray-500 hover:text-[#1A1560] font-medium text-[15px] transition-colors text-left hover:translate-x-1 duration-200">Skin Biopsy</button>
+                                    <button onClick={() => navigate('/specialty/acne-care')} className="text-gray-500 hover:text-[#1A1560] font-medium text-[15px] transition-colors text-left hover:translate-x-1 duration-200">{t('acneCare')}</button>
+                                    <button onClick={() => navigate('/specialty/hair-loss-treatment')} className="text-gray-500 hover:text-[#1A1560] font-medium text-[15px] transition-colors text-left hover:translate-x-1 duration-200">{t('hairLossTreatment')}</button>
+                                    <button onClick={() => navigate('/specialty/scabies-mites')} className="text-gray-500 hover:text-[#1A1560] font-medium text-[15px] transition-colors text-left hover:translate-x-1 duration-200">{t('scabies')}</button>
+                                    <button onClick={() => navigate('/specialty/co2-laser')} className="text-gray-500 hover:text-[#1A1560] font-medium text-[15px] transition-colors text-left hover:translate-x-1 duration-200">{t('co2Laser')}</button>
+                                    <button onClick={() => navigate('/specialty/hair-transplant')} className="text-gray-500 hover:text-[#1A1560] font-medium text-[15px] transition-colors text-left hover:translate-x-1 duration-200">{t('hairTransplant')}</button>
+                                    <button onClick={() => navigate('/specialty/skin-biopsy')} className="text-gray-500 hover:text-[#1A1560] font-medium text-[15px] transition-colors text-left hover:translate-x-1 duration-200">{t('skinBiopsy')}</button>
                                 </div>
                             </div>
                         </div>
@@ -165,7 +167,7 @@ const Footer = () => {
                     {/* Bottom Bar Bar */}
                     <div className="pt-8 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
                         <p className="text-gray-400 text-xs md:text-sm font-medium leading-relaxed">
-                            ©Copyright 2026 Nilakanta skin & Hair Clininc. All Rights Reserved.
+                            ©Copyright 2026 {language === 'en' ? 'Nilakanta skin & Hair Clinic' : 'నీలకంఠ స్కిన్ & హెయిర్ క్లినిక్'}. All Rights Reserved.
                         </p>
                         <a
                             href="https://lumnori.com/"
