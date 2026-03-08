@@ -1,8 +1,8 @@
 import { Helmet } from 'react-helmet-async'
 import Header from '../components/Header'
 import Specialities from '../components/Specialities'
-import TreatmentSection from '../components/TreatmentSection'
-import TattooSection from '../components/TattooSection'
+// import TreatmentSection from '../components/TreatmentSection'
+// import TattooSection from '../components/TattooSection'
 import AboutUs from '../components/AboutUs'
 import SocialFollow from '../components/SocialFollow'
 import BookingContact from '../components/BookingContact'
@@ -22,7 +22,7 @@ const Home = () => {
         <meta name="description" content="Nilakanta Skin & Hair Clinic by Dr. Neelakanta Babu. Expert treatment for skin allergies, hair transplant, vitiligo surgery, and more in Vijayawada." />
         <meta property="og:title" content="Nilakanta Skin & Hair Clinic | Best Dermatologist in Vijayawada" />
         <meta property="og:description" content="Expert dermatological and hair transplant services by Dr. Neelakanta Babu in Vijayawada." />
-        <meta property="og:image" content="/doctor.jpeg" />
+        <meta property="og:image" content="/final-doctor.jpeg" />
       </Helmet>
       <Header />
       <main>
@@ -45,7 +45,7 @@ const Home = () => {
                 <div className="flex flex-col md:flex-row items-center lg:items-start gap-4 mb-8">
                   <div className="w-16 h-16 rounded-full border-2 border-white/20 overflow-hidden flex-shrink-0">
                     <img
-                      src="/doctor.jpeg"
+                      src="/final-doctor.jpeg"
                       alt="Dr. Neelakanta Babu"
                       className="w-full h-full object-cover"
                     />
@@ -105,10 +105,10 @@ const Home = () => {
         </div>
 
         {/* Featured Treatment Section */}
-        <TreatmentSection />
+        {/* <TreatmentSection /> */}
 
         {/* Tattoo Removal Section */}
-        <TattooSection />
+        {/* <TattooSection /> */}
 
         {/* About Us Section */}
         <div id="about">

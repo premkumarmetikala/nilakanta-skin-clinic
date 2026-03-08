@@ -55,7 +55,7 @@ const Header = () => {
                     className="flex flex-col z-50 cursor-pointer"
                     onClick={() => scrollToSection('home')}
                 >
-                    <h1 className="text-[#1A1560] font-extrabold text-base md:text-lg leading-tight tracking-tight">
+                    <h1 className="text-[#1A1560] font-extrabold text-[13px] sm:text-base md:text-lg leading-tight tracking-tight whitespace-nowrap">
                         {language === 'en' ? 'Nilakanta skin & Hair Clinic' : 'నీలకంఠ స్కిన్ & హెయిర్ క్లినిక్'}
                     </h1>
                     <span className="text-[#1A1560] text-[10px] md:text-xs font-semibold tracking-wide opacity-90">

@@ -14,11 +14,11 @@ const Specialities = () => {
     { title: t('skinBiopsy'), image: "/skinbiopsy.png", slug: "skin-biopsy" },
     { title: t('acneCare'), image: "/acne.png", slug: "acne-care" },
     { title: t('chemicalPeel'), image: "/chemicalpeel.png", slug: "chemical-peel" },
-    { title: t('co2Laser'), image: "/co2 laser.png", slug: "co2-laser" },
+    { title: t('co2Laser'), image: "/co2scars.jpeg", slug: "co2-laser" },
     { title: t('hydraFacial'), image: "/hydrafacial.png", slug: "hydrafacial" },
     { title: t('prpGfc'), image: "/prp.png", slug: "prp-gfc" },
     { title: t('hairTransplant'), image: "/hairtransplant.png", slug: "hair-transplant" },
-    { title: t('hairLossTreatment'), image: "/hairloss.png", slug: "hair-loss-treatment" },
+    { title: t('hairLossTreatment'), image: "/hairloss_treatement.jpeg", slug: "hair-loss-treatment" },
     { title: t('tattooRemoval'), image: "/co2 laser.png", slug: "tattoo-removal" },
   ];
 

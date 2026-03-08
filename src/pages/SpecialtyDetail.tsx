@@ -76,10 +76,10 @@ const specialtyData: Record<string, {
     'co2-laser': {
         titleKey: 'co2Laser',
         heroTitle: 'Advanced CO2 Laser Scar Treatment',
-        description: 'From visible scars to smooth, even skin, experience the mastery of Dr. Neelakanta\'s expertise. This transformative treatment utilizes state-of-the-art CO2 laser technology. We provide complete scar reduction designed for remarkable results. Join thousands who have regained their confidence with us. Your skin, our passion.',
-        beforeImage: '/co2 laser.png',
-        afterImage: '/skinallergy.png',
-        image: '/co2 laser.png'
+        description: 'We deliver controlled energy to the scarred skin via CO₂ laser. This stimulates collagen regeneration in the skin, making old scars appear significantly lighter and smoother over time. Our clinical case studies show significant improvement in scar depth and texture within 20 days.',
+        beforeImage: '/co2scars.jpeg',
+        afterImage: '/co2scars.jpeg',
+        image: '/co2scars.jpeg'
     },
     'hydrafacial': {
         titleKey: 'hydraFacial',
@@ -107,18 +107,18 @@ const specialtyData: Record<string, {
     },
     'hair-loss-treatment': {
         titleKey: 'hairLossTreatment',
-        heroTitle: 'From Grade VII Baldness to Confidence hair',
-        description: 'From Grade VII baldness to a full head of natural hair, experience the mastery of Dr. Neelakanta\'s 10-year expertise. This transformative journey utilized 4,230 precision grafts, expertly executed over a dedicated two-day surgical procedure. We provide complete scalp coverage designed for a seamless, youthful look. Join thousands who have regained their self-esteem with us. Your hair, our passion.',
-        beforeImage: '/a8d146ca8b4b1d737c95825397bad650a4acad3b.jpg',
-        afterImage: '/hairloss.png',
-        image: '/hairloss.png'
+        heroTitle: 'From Grade VII Baldness to Confidence',
+        description: 'From Grade VII baldness to a full head of natural hair, experience the mastery of Dr. Neelakanta\'s 10-year expertise. This transformative journey utilized 4,230 precision grafts, expertly executed over a dedicated two-day surgical procedure. We provide complete scalp coverage designed for a seamless, youthful look.',
+        beforeImage: '/hairloss_treatement.jpeg',
+        afterImage: '/hairloss_treatement.jpeg',
+        image: '/hairloss_treatement.jpeg'
     },
     'tattoo-removal': {
         titleKey: 'tattooRemoval',
-        heroTitle: 'Safe & Effective Tattoo Removal',
+        heroTitle: 'Tattoo Removal – Treatment Tailored to Your Needs',
         description: 'Whether it\'s standard laser removal (10-12 sessions) or our specialized "Controlled Tattoo Destruction" for urgent defense selection requirements, we offer precise medical solutions tailored to your timeline and budget. Safe, effective, and professionally monitored.',
         beforeImage: '/co2 laser.png',
-        afterImage: '/hydrafacial.png',
+        afterImage: '/co2 laser.png',
         image: '/co2 laser.png'
     },
 };
@@ -214,16 +214,24 @@ const SpecialtyDetail = () => {
                                 </a>
                             </div>
 
-                            {/* Right: Before/After Image Comparison Slider */}
+                            {/* Right: Image Section */}
                             <div className="relative">
-                                <div className="rounded-3xl overflow-hidden shadow-xl border-4 border-indigo-50 aspect-[4/3]">
-                                    <ImageComparisonSlider
-                                        leftImage={specialty.beforeImage}
-                                        rightImage={specialty.afterImage}
-                                        altLeft={`${title} - Before treatment`}
-                                        altRight={`${title} - After treatment`}
-                                        initialPosition={50}
-                                    />
+                                <div className={`rounded-3xl overflow-hidden shadow-xl border-4 border-indigo-50 ${specialty.beforeImage === specialty.afterImage ? '' : 'aspect-[4/3]'}`}>
+                                    {specialty.beforeImage === specialty.afterImage ? (
+                                        <img
+                                            src={specialty.beforeImage}
+                                            alt={title}
+                                            className="w-full h-auto object-contain max-h-[500px] mx-auto"
+                                        />
+                                    ) : (
+                                        <ImageComparisonSlider
+                                            leftImage={specialty.beforeImage}
+                                            rightImage={specialty.afterImage}
+                                            altLeft={`${title} - Before treatment`}
+                                            altRight={`${title} - After treatment`}
+                                            initialPosition={50}
+                                        />
+                                    )}
                                 </div>
                                 {/* Decorative elements */}
                                 <div className="absolute -bottom-4 -right-4 w-20 h-20 bg-blue-100 rounded-full opacity-40 -z-10"></div>
@@ -273,7 +281,7 @@ const SpecialtyDetail = () => {
             </section>
 
             <Footer />
-        </div>
+        </div >
     );
 };
 
