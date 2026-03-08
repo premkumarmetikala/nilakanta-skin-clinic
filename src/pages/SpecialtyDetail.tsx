@@ -14,8 +14,10 @@ const specialtyData: Record<string, {
     description: string;
     beforeImage: string;
     afterImage: string;
-    // Adding optional property to link back to list or for related items if needed
     image?: string;
+    features?: string[];
+    options?: { title: string; subtitle: string; description: string; highlights: string[]; dark?: boolean }[];
+    phases?: { title: string; day: string; description: string; color: string }[];
 }> = {
     'skin-allergy': {
         titleKey: 'skinAllergy',
@@ -76,10 +78,15 @@ const specialtyData: Record<string, {
     'co2-laser': {
         titleKey: 'co2Laser',
         heroTitle: 'Advanced CO2 Laser Scar Treatment',
-        description: 'We deliver controlled energy to the scarred skin via CO₂ laser. This stimulates collagen regeneration in the skin, making old scars appear significantly lighter and smoother over time. Our clinical case studies show significant improvement in scar depth and texture within 20 days.',
+        description: 'We deliver controlled energy to the scarred skin via CO₂ laser. This stimulates collagen regeneration in the skin, making old scars appear significantly lighter and smoother over time.',
         beforeImage: '/co2scars.jpeg',
         afterImage: '/co2scars.jpeg',
-        image: '/co2scars.jpeg'
+        image: '/co2scars.jpeg',
+        features: ['100% Medical Precision', 'Advanced Collagen Regeneration'],
+        phases: [
+            { title: 'immediatelyAfter', day: 'Day 0', description: 'immediatelyAfterDesc', color: 'bg-amber-400' },
+            { title: 'after20Days', day: 'Day 20', description: 'after20DaysDesc', color: 'bg-green-500' }
+        ]
     },
     'hydrafacial': {
         titleKey: 'hydraFacial',
@@ -116,10 +123,26 @@ const specialtyData: Record<string, {
     'tattoo-removal': {
         titleKey: 'tattooRemoval',
         heroTitle: 'Tattoo Removal – Treatment Tailored to Your Needs',
-        description: 'Whether it\'s standard laser removal (10-12 sessions) or our specialized "Controlled Tattoo Destruction" for urgent defense selection requirements, we offer precise medical solutions tailored to your timeline and budget. Safe, effective, and professionally monitored.',
+        description: 'Safe, effective, and professionally monitored tattoo removal solutions tailored to your timeline and budget.',
         beforeImage: '/co2 laser.png',
         afterImage: '/co2 laser.png',
-        image: '/co2 laser.png'
+        image: '/co2 laser.png',
+        options: [
+            {
+                title: 'Laser Tattoo Removal',
+                subtitle: 'Standard Protocol',
+                description: 'tattooLaserDesc',
+                highlights: ['Safest long-term option', 'Ideal for thick & dark tattoos'],
+                dark: false
+            },
+            {
+                title: 'tattooUrgentQuestion',
+                subtitle: 'Urgent Solutions',
+                description: 'tattooUrgentDesc',
+                highlights: ['tattooBenefit1', 'tattooBenefit2', 'tattooBenefit3'],
+                dark: true
+            }
+        ]
     },
 };
 
@@ -204,14 +227,69 @@ const SpecialtyDetail = () => {
                                 <p className="text-gray-600 text-sm md:text-base leading-relaxed">
                                     {specialty.description}
                                 </p>
-                                <a
-                                    href="https://wa.me/919963234094?text=Hey%20I%20want%20to%20Book%20appointment"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="inline-block border-2 border-[#1A1560] text-[#1A1560] hover:bg-[#1A1560] hover:text-white px-7 py-3 rounded-xl font-bold text-sm transition-all hover:scale-[1.02] active:scale-95"
-                                >
-                                    {t('bookAppointment')}
-                                </a>
+
+                                {/* Additional Content Blocks */}
+                                {specialty.features && (
+                                    <div className="flex flex-wrap gap-3 pt-2">
+                                        {specialty.features.map((feature, idx) => (
+                                            <div key={idx} className="flex items-center gap-2 px-3 py-1.5 bg-indigo-50 border border-indigo-100 rounded-lg">
+                                                <div className="w-1.5 h-1.5 rounded-full bg-indigo-600"></div>
+                                                <span className="text-[11px] font-bold text-[#1A1560] uppercase tracking-wide">{feature}</span>
+                                            </div>
+                                        ))}
+                                    </div>
+                                )}
+
+                                {specialty.phases && (
+                                    <div className="space-y-4 pt-4 border-t border-gray-100">
+                                        {specialty.phases.map((phase, idx) => (
+                                            <div key={idx} className="flex gap-4">
+                                                <div className="flex flex-col items-center">
+                                                    <div className={`w-3 h-3 rounded-full ${phase.color} mt-1.5`}></div>
+                                                    {idx !== specialty.phases!.length - 1 && <div className="w-px h-full bg-gray-100 my-1"></div>}
+                                                </div>
+                                                <div>
+                                                    <h4 className="text-sm font-black text-[#1A1560] flex items-center gap-2">
+                                                        {t(phase.title)}
+                                                        <span className="text-[9px] font-bold bg-gray-50 text-gray-400 px-1.5 py-0.5 rounded uppercase">{phase.day}</span>
+                                                    </h4>
+                                                    <p className="text-xs text-gray-500 leading-tight mt-0.5">{t(phase.description)}</p>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                )}
+
+                                {specialty.options && (
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+                                        {specialty.options.map((opt, idx) => (
+                                            <div key={idx} className={`p-4 rounded-2xl border ${opt.dark ? 'bg-[#1A1560] text-white border-transparent' : 'bg-gray-50 border-gray-100'}`}>
+                                                <h4 className={`text-sm font-black mb-0.5 ${opt.dark ? 'text-white' : 'text-[#1A1560]'}`}>{t(opt.title)}</h4>
+                                                <p className={`text-[10px] uppercase tracking-widest font-bold mb-2 ${opt.dark ? 'text-indigo-300' : 'text-indigo-400'}`}>{opt.subtitle}</p>
+                                                <p className={`text-[11px] leading-relaxed mb-3 ${opt.dark ? 'text-indigo-50/80' : 'text-gray-500'}`}>{t(opt.description)}</p>
+                                                <div className="space-y-1">
+                                                    {opt.highlights.map((h, i) => (
+                                                        <div key={i} className="flex items-center gap-2">
+                                                            <div className={`w-1 h-1 rounded-full ${opt.dark ? 'bg-indigo-400' : 'bg-indigo-600'}`}></div>
+                                                            <span className={`text-[10px] font-bold ${opt.dark ? 'text-indigo-100' : 'text-[#1A1560]'}`}>{t(h)}</span>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                )}
+
+                                <div className="pt-4">
+                                    <a
+                                        href="https://wa.me/919963234094?text=Hey%20I%20want%20to%20Book%20appointment"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-block border-2 border-[#1A1560] text-[#1A1560] hover:bg-[#1A1560] hover:text-white px-7 py-3 rounded-xl font-bold text-sm transition-all hover:scale-[1.02] active:scale-95"
+                                    >
+                                        {t('bookAppointment')}
+                                    </a>
+                                </div>
                             </div>
 
                             {/* Right: Image Section */}
