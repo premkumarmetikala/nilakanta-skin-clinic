@@ -80,9 +80,9 @@ const AboutUs = () => {
                                 <div className="relative">
                                     <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl">
                                         <img
-                                            src="/final-doctor.jpeg"
+                                            src="/aboutsectiondoc.jpeg"
                                             alt="Dr. Neelakanta Babu"
-                                            className="w-full h-full object-cover"
+                                            className="w-full h-full object-cover object-top rounded-3xl"
                                         />
                                         <div className="absolute inset-0 bg-gradient-to-t from-[#1A1560]/80 via-transparent to-transparent"></div>
                                     </div>
