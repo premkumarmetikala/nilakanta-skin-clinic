@@ -69,9 +69,6 @@ const Footer = () => {
                             <h3 className="text-[#1A1560] font-extrabold text-xl lg:text-2xl leading-tight mb-2">
                                 {language === 'en' ? 'Neelakanta Skin Laser - Leader Hair-transplant Clinic' : 'నీలకంఠ స్కిన్ లేజర్ - లీడర్ హెయిర్ ట్రాన్స్‌ప్లాంట్ క్లినిక్'}
                             </h3>
-                            <p className="text-[#1A1560] text-base lg:text-lg font-bold mb-5 opacity-90">
-                                {language === 'en' ? 'Dermacare & Hair Transplant' : 'నీలకంఠ చర్మ వ్యాధుల క్లినిక్'}
-                            </p>
                             <div className="flex gap-4">
                                 <a
                                     href="https://www.instagram.com/drneelakantadermatologist?igsh=MTFsaXgzdWM4M3czbA%3D%3D&utm_source=qr"
