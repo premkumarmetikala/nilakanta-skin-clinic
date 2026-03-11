@@ -55,8 +55,12 @@ const Header = () => {
                     className="flex flex-col z-50 cursor-pointer"
                     onClick={() => scrollToSection('home')}
                 >
-                    <h1 className="text-[#1A1560] font-extrabold text-[13px] sm:text-base md:text-lg leading-tight tracking-tight whitespace-nowrap">
-                        {language === 'en' ? 'Neelakanta Skin Laser - Leader Hair-transplant Clinic' : 'నీలకంఠ స్కిన్ లేజర్ - లీడర్ హెయిర్ ట్రాన్స్‌ప్లాంట్ క్లినిక్'}
+                    <h1 className="text-[#1A1560] font-extrabold text-[13px] sm:text-base md:text-lg leading-tight tracking-tight">
+                        {language === 'en' ? (
+                            <>Neelakanta Skin Laser -<br />Leader Hair-transplant Clinic</>
+                        ) : (
+                            <>నీలకంఠ స్కిన్ లేజర్ -<br />లీడర్ హెయిర్ ట్రాన్స్‌ప్లాంట్ క్లినిక్</>
+                        )}
                     </h1>
                 </div>
 
