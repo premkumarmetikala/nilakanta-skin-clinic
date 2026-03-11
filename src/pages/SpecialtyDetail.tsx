@@ -192,12 +192,12 @@ const SpecialtyDetail = () => {
     return (
         <div className="min-h-screen bg-white font-manrope">
             <Helmet>
-                <title>{`${title} | Nilakanta Skin & Hair Clinic`}</title>
+                <title>{`${title} | Neelakanta Skin Laser - Leader Hair-transplant Clinic`}</title>
                 <meta name="description" content={specialty.description} />
-                <meta property="og:title" content={`${title} | Nilakanta Skin & Hair Clinic`} />
+                <meta property="og:title" content={`${title} | Neelakanta Skin Laser - Leader Hair-transplant Clinic`} />
                 <meta property="og:description" content={specialty.description} />
                 <meta property="og:image" content={specialty.beforeImage} />
-                <meta property="twitter:title" content={`${title} | Nilakanta Skin & Hair Clinic`} />
+                <meta property="twitter:title" content={`${title} | Neelakanta Skin Laser - Leader Hair-transplant Clinic`} />
                 <meta property="twitter:description" content={specialty.description} />
                 <meta property="twitter:image" content={specialty.beforeImage} />
             </Helmet>

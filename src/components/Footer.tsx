@@ -67,7 +67,7 @@ const Footer = () => {
 
                         <div className="flex flex-col items-start lg:items-end text-left lg:text-right w-full lg:w-auto transition-all">
                             <h3 className="text-[#1A1560] font-extrabold text-xl lg:text-2xl leading-tight mb-2">
-                                {language === 'en' ? 'Nilakanta skin & Hair Clinic' : 'నీలకంఠ స్కిన్ & హెయిర్ క్లినిక్'}
+                                {language === 'en' ? 'Neelakanta Skin Laser - Leader Hair-transplant Clinic' : 'నీలకంఠ స్కిన్ లేజర్ - లీడర్ హెయిర్ ట్రాన్స్‌ప్లాంట్ క్లినిక్'}
                             </h3>
                             <p className="text-[#1A1560] text-base lg:text-lg font-bold mb-5 opacity-90">
                                 {language === 'en' ? 'Dermacare & Hair Transplant' : 'నీలకంఠ చర్మ వ్యాధుల క్లినిక్'}
@@ -167,7 +167,7 @@ const Footer = () => {
                     {/* Bottom Bar Bar */}
                     <div className="pt-8 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
                         <p className="text-gray-400 text-xs md:text-sm font-medium leading-relaxed">
-                            ©Copyright 2026 {language === 'en' ? 'Nilakanta skin & Hair Clinic' : 'నీలకంఠ స్కిన్ & హెయిర్ క్లినిక్'}. All Rights Reserved.
+                            ©Copyright 2026 {language === 'en' ? 'Neelakanta Skin Laser - Leader Hair-transplant Clinic' : 'నీలకంఠ స్కిన్ లేజర్ - లీడర్ హెయిర్ ట్రాన్స్‌ప్లాంట్ క్లినిక్'}. All Rights Reserved.
                         </p>
                         <a
                             href="https://lumnori.com/"

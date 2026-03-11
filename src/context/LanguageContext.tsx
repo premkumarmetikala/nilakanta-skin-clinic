@@ -18,7 +18,7 @@ const translations: Record<Language, Record<string, string>> = {
         specialities: 'Specialities',
         contact: 'Contact',
         // Hero
-        clinicName: 'Nilakanta skin laser & leader Hair transplant',
+        clinicName: 'Neelakanta Skin Laser - Leader Hair-transplant Clinic',
         tagline: 'Safe, effective, and personalized solutions for lifelong skin and hair wellness',
         bookAppointment: 'Book Appointment',
         doctorRole: 'Dermatologist & Hair transplant specialist',
@@ -31,7 +31,7 @@ const translations: Record<Language, Record<string, string>> = {
         specialitiesDesc: 'Comprehensive dermatological and hair transplant services tailored to your needs.',
         viewAll: 'View All',
         // About
-        aboutTitle: 'About Nilakanta Skin & Hair Clinic',
+        aboutTitle: 'About Neelakanta Skin Laser - Leader Hair-transplant Clinic',
         aboutDesc: 'Led by Dr. Neelakanta Babu, we are dedicated to providing the highest quality skin and hair care. Our clinic is equipped with the latest laser technology and hair transplant equipment to ensure the best results for our patients.',
         // Contact
         visitUs: 'Visit us on',
@@ -54,7 +54,7 @@ const translations: Record<Language, Record<string, string>> = {
         hairTransplant: 'Hair Transplant',
         hairLossTreatment: 'Hair Loss treatment',
         howWeCanHelp: 'How We Can Help You',
-        welcomeMessage: 'Welcome to Neelakanta Skin & Laser - Leader Hair Transplant, a trusted destination for advanced skin, hair, and aesthetic solutions in Vijayawada.',
+        welcomeMessage: 'Welcome to Neelakanta Skin Laser - Leader Hair-transplant Clinic, a trusted destination for advanced skin, hair, and aesthetic solutions in Vijayawada.',
         welcomeDesc: 'With years of clinical experience and a deep commitment to patient well-being, we deliver personalized care using the latest dermatological and hair restoration technologies.',
         readMore: 'Know more',
         readLess: 'Read Less',
@@ -88,7 +88,7 @@ const translations: Record<Language, Record<string, string>> = {
         specialities: 'స్పెషాలిటీస్',
         contact: 'కాంటాక్ట్',
         // Hero
-        clinicName: 'నీలకంఠ స్కిన్ లేజర్ & లీడర్ హెయిర్ ట్రాన్స్ప్లాంట్',
+        clinicName: 'నీలకంఠ స్కిన్ లేజర్ - లీడర్ హెయిర్ ట్రాన్స్‌ప్లాంట్ క్లినిక్',
         tagline: 'జీవితకాల చర్మం మరియు జుట్టు ఆరోగ్యం కోసం సురక్షితమైన, సమర్థవంతమైన మరియు వ్యక్తిగతీకరించిన పరిష్కారాలు',
         bookAppointment: 'అపాయింట్‌మెంట్ బుక్ చేయండి',
         doctorRole: 'డెర్మటాలజిస్ట్ & హెయిర్ ట్రాన్స్‌ప్లాంట్ స్పెషలిస్ట్',
@@ -101,7 +101,7 @@ const translations: Record<Language, Record<string, string>> = {
         specialitiesDesc: 'మీ అవసరాలకు అనుగుణంగా సమగ్రమైన డెర్మటాలజికల్ మరియు హెయిర్ ట్రాన్స్‌ప్లాంట్ సేవలు.',
         viewAll: 'అన్నీ చూడండి',
         // About
-        aboutTitle: 'నీలకంఠ స్కిన్ & హెయిర్ క్లినిక్ గురించి',
+        aboutTitle: 'నీలకంఠ స్కిన్ లేజర్ - లీడర్ హెయిర్ ట్రాన్స్‌ప్లాంట్ క్లినిక్ గురించి',
         aboutDesc: 'డాక్టర్ నీలకంఠ బాబు గారి నేతృత్వంలో, మేము అత్యధిక నాణ్యత గల చర్మం మరియు జుట్టు సంరక్షణను అందించడానికి కట్టుబడి ఉన్నాము. మా క్లినిక్ మా రోగులకు ఉత్తమ ఫలితాలను నిర్ధారించడానికి సరికొద్దీ లేజర్ టెక్నాలజీ మరియు హెయిర్ ట్రాన్స్‌ప్లాంట్ పరికరాలను కలిగి ఉంది.',
         // Contact
         visitUs: 'మమ్మల్ని సందర్శించండి',
@@ -124,7 +124,7 @@ const translations: Record<Language, Record<string, string>> = {
         hairTransplant: 'హెయిర్ ట్రాన్స్‌ప్లాంట్',
         hairLossTreatment: 'జుట్టు రాలడం చికిత్స',
         howWeCanHelp: 'మేము మీకు ఎలా సహాయం చేస్తాము',
-        welcomeMessage: 'విజయవాడలో అడ్వాన్స్‌డ్ స్కిన్, హెయిర్ మరియు ఈస్తటిక్ సొల్యూషన్స్ కోసం నీలకంఠ స్కిన్ లేజర్ - లీడర్ హెయిర్ ట్రాన్స్‌ప్లాంట్ ఒక విశ్వసనీయ గమ్యస్థానం.',
+        welcomeMessage: 'విజయవాడలో అడ్వాన్స్‌డ్ స్కిన్, హెయిర్ మరియు ఈస్తటిక్ సొల్యూషన్స్ కోసం నీలకంఠ స్కిన్ లేజర్ - లీడర్ హెయిర్ ట్రాన్స్‌ప్లాంట్ క్లినిక్ ఒక విశ్వసనీయ గమ్యస్థానం.',
         welcomeDesc: 'అనేక సంవత్సరాల క్లినికల్ అనుభవం మరియు రోగుల సంక్షేమం పట్ల లోతైన నిబద్ధతతో, మేము సరికొద్దీ డెర్మటాలజికల్ మరియు హెయిర్ రీస్టోరేషన్ టెక్నాలజీలను ఉపయోగించి వ్యక్తిగతీకరించిన సంరక్షణను అందిస్తాము.',
         readMore: 'మరింత సమాచారం',
         readLess: 'తక్కువ చూపించు',

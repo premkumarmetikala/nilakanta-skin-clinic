@@ -56,7 +56,7 @@ const Header = () => {
                     onClick={() => scrollToSection('home')}
                 >
                     <h1 className="text-[#1A1560] font-extrabold text-[13px] sm:text-base md:text-lg leading-tight tracking-tight whitespace-nowrap">
-                        {language === 'en' ? 'Nilakanta skin & Hair Clinic' : 'నీలకంఠ స్కిన్ & హెయిర్ క్లినిక్'}
+                        {language === 'en' ? 'Neelakanta Skin Laser - Leader Hair-transplant Clinic' : 'నీలకంఠ స్కిన్ లేజర్ - లీడర్ హెయిర్ ట్రాన్స్‌ప్లాంట్ క్లినిక్'}
                     </h1>
                     <span className="text-[#1A1560] text-[10px] md:text-xs font-semibold tracking-wide opacity-90">
                         {language === 'en' ? 'Dermacare & Hair Transplant' : 'నీలకంఠ చర్మ వ్యాధుల క్లినిక్'}

@@ -19,8 +19,8 @@ const Home = () => {
     <div className="min-h-screen bg-white font-manrope">
       <Helmet>
         <title>{t('clinicName')} | Best Dermatologist in Vijayawada</title>
-        <meta name="description" content="Nilakanta Skin & Hair Clinic by Dr. Neelakanta Babu. Expert treatment for skin allergies, hair transplant, vitiligo surgery, and more in Vijayawada." />
-        <meta property="og:title" content="Nilakanta Skin & Hair Clinic | Best Dermatologist in Vijayawada" />
+        <meta name="description" content="Neelakanta Skin Laser - Leader Hair-transplant Clinic by Dr. Neelakanta Babu. Expert treatment for skin allergies, hair transplant, vitiligo surgery, and more in Vijayawada." />
+        <meta property="og:title" content="Neelakanta Skin Laser - Leader Hair-transplant Clinic | Best Dermatologist in Vijayawada" />
         <meta property="og:description" content="Expert dermatological and hair transplant services by Dr. Neelakanta Babu in Vijayawada." />
         <meta property="og:image" content="/final-doctor.jpeg" />
       </Helmet>
@@ -83,7 +83,7 @@ const Home = () => {
                 <div className="relative z-10 w-full max-w-[400px] aspect-square bg-white/5 rounded-[2rem] border border-white/10 overflow-hidden shadow-2xl backdrop-blur-sm">
                   <img
                     src="/a8d146ca8b4b1d737c95825397bad650a4acad3b.jpg"
-                    alt="Nilakanta Skin Clinic"
+                    alt="Neelakanta Skin Laser - Leader Hair-transplant Clinic"
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#291593]/60 via-transparent to-transparent"></div>
